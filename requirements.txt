@@ -1,0 +1,34 @@
+# requirements.txt - 微调版
+
+# --- 核心 Web 框架 ---
+streamlit>=1.33.0
+watchdog            # 推荐：用于 Streamlit 在服务器上的文件监控
+
+# --- 数据处理 (Excel/Pandas) ---
+pandas>=2.0.0
+openpyxl            # 必选：Pandas 处理 .xlsx 文件依赖
+xlrd>=2.0.1         # 必选：Pandas 处理 .xls 文件依赖
+
+# --- LangChain 生态 (RAG 核心) ---
+langchain>=0.1.16
+langchain-community # 包含 ChatOpenAI 等社区组件
+langchain-core      # 核心接口
+langchain-openai    # 推荐：现代版 OpenAI 接口适配器
+openai>=1.0.0       # 必选：用于连接 DeepSeek API (兼容 OpenAI 协议)
+
+# --- 向量数据库 ---
+chromadb>=0.4.24    # 必选：用于存储向量数据
+
+# --- 文档解析与生成 ---
+python-docx         # 必选：用于解析 Word 和 TenderWriterEngine 生成标书
+pypdf               # 必选：用于解析 PDF
+# unstructured      # 可选：如果您在 tender_parser.py 中使用了它，请取消注释。否则建议不装，太重。
+
+# --- 检索算法与重排序 ---
+rank_bm25           # 必选：代码中使用了 BM25Persistence
+sentence-transformers # 必选：代码中使用了 RerankService
+torch               # sentence-transformers 的依赖，通常会自动安装，但显式声明更稳妥
+
+# --- 工具与辅助 ---
+python-dotenv       # 用于加载环境变量
+ticktoken           # 计算 token 数量常用于 LangChain

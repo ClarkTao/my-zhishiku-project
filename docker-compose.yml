@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  neo4j:
+    image: neo4j:community
+    container_name: deepseek_graph_db
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/MyStrongPassword123
+    volumes:
+      - ./neo4j_data:/data   # ✅ 正确：图数据持久化
+      - ./neo4j_logs:/logs   # ✅ 正确：日志持久化
+    restart: unless-stopped
