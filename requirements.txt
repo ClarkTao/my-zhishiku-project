@@ -31,4 +31,4 @@ torch               # sentence-transformers 的依赖，通常会自动安装，
 
 # --- 工具与辅助 ---
 python-dotenv       # 用于加载环境变量
-ticktoken           # 计算 token 数量常用于 LangChain
+tiktoken           # 计算 token 数量常用于 LangChain
